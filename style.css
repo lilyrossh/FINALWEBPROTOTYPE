@@ -1,0 +1,47 @@
+html, body, .grid-container { height: 100%; margin: 0; }
+
+.grid-container {
+  display: grid;
+  grid-template-columns: 0.6fr 2fr 0.4fr;
+  grid-template-rows: 0.6fr 0.4fr 2.4fr 0.6fr;
+  gap: 5px;
+  grid-template-areas:
+    "logo nav nav"
+    "header header header"
+    "aside-left body-text aside-right"
+    "footer footer footer";
+}
+
+logo { grid-area: logo; }
+
+nav { grid-area: nav; }
+
+header { grid-area: header; }
+
+aside-left { grid-area: aside-left; }
+
+aside-right { grid-area: aside-right; }
+
+body-text { grid-area: body-text; }
+
+footer { grid-area: footer; }
+
+
+/* For presentation only, no need to copy the code below */
+.grid-container * {
+  border: 1px solid red;
+  position: relative;
+}
+
+.grid-container *:after {
+  content:attr(class);
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+@media screen and (max-width: 460px) {
+  .grid-container {
+    display:block; 
+  }
+}

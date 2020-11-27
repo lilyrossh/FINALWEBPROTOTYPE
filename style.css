@@ -1,22 +1,26 @@
 html, body, .grid-container { height: 100%; margin: 0; }
 
-.grid-container {
+html {
+  scroll-behavior: smooth;
+}
+
+/* Begining of grid container */
+.grid-container { 
   display: grid;
-  grid-template-columns: 0.6fr 2fr 0.4fr;
-  grid-template-rows: 0.6fr 0.4fr 2.4fr 0.6fr;
-  gap: 5px;
+  grid-template-columns: 288px 2fr 288px; /* Here is where I defined the size of my three columns. The two aside columns are equal in size, whereas the body text column in the centre is a little bit larger */
+  grid-template-rows: 0.6fr /*0.4fr*/ 2.4fr 0.6fr; /* This is where I defined the size of my rows. The centre row's (aside's and body-text) are larger that the top and bottom rows (logo, nav and footer). */
+  gap: 5px; /* I set a grid gap of 5px to provide some space between each section of the grid */
   grid-template-areas:
     "logo nav nav"
-    "header header header"
     "aside-left body-text aside-right"
     "footer footer footer";
 }
 
-logo { grid-area: logo; }
+logo { grid-area: logo;} 
 
-nav { grid-area: nav; }
-
-header { grid-area: header; }
+nav { 
+  padding: 3em; 
+}
 
 aside-left { grid-area: aside-left; }
 
@@ -27,21 +31,227 @@ body-text { grid-area: body-text; }
 footer { grid-area: footer; }
 
 
-/* For presentation only, no need to copy the code below */
-.grid-container * {
-  border: 1px solid red;
-  position: relative;
-}
+/* media queries */ 
 
-.grid-container *:after {
-  content:attr(class);
-  position: absolute;
-  top: 0;
-  left: 0;
-}
-
-@media screen and (max-width: 460px) {
+@media screen and (max-width: 460px) { /* Here i created a media query in order to make the website responsive and usable of devices with a smaller screen size  */
   .grid-container {
-    display:block; 
+    display:block;
+  }
+
+  logo,
+  nav,
+  aside-left,
+  aside-right,
+  body-text,
+  footer {
+    width:100%;
+    min-height: 200px;
   }
 }
+
+/* Navigation bar styles */
+
+nav {
+  width: 100%;
+  height: 40px; 
+  background-color: white; 
+}
+
+nav p { 
+  font-family: 'Inter', sans-serif;
+  color: black ;
+  font-size: 24px;
+  line-height: 55px;
+  float: left;
+  padding: 10px, 20px;
+  
+}
+
+nav ul {
+  float: left;
+}
+
+nav ul li {
+  float: left;
+  list-style: none;
+  position: relative;
+  margin: 36px 20px;
+}
+
+nav ul li a {
+  display: block; 
+  font-family: 'Inter', sans-serif;
+  color: black ;
+  opacity: 1;
+  font-size: 18px;
+  padding: 22px 14px; 
+  margin: 0px 20px;
+  text-decoration: none; 
+}
+
+nav ul li ul {
+  display: none;
+  position: absolute;
+  background-color: white;
+  padding:9px;
+  border-radius: 0px 0px 6px 6px; /* This gives the edges of the drop down nav bar a rounded style */
+}
+
+nav ul li:hover ul { /* This means that when the user hovers over the text on the nav bar it becomes underlined */
+  display: block; 
+  text-decoration: underline;
+  
+}
+
+nav ul li ul li {
+ width: 180px;
+ margin:0px;
+ border-radius: 4px; 
+
+}
+
+nav ul li ul li a {
+ padding: 8px 14px;
+
+}
+
+nav ul li ul li a:hover { /* This gives the hover element a smoothness */
+ background-color: #f5f3f4; 
+ transition: 0.2s; 
+}
+
+nav ul li a:hover { /*This means that when you hover over the drop down workshop section of the nav bar the text within will also turn blue, become bolder and underlined*/
+ text-decoration: underline; 
+ font-weight: 600;
+ color:#1775e4;  
+}
+
+/* Background image */
+
+body {
+background-image: url("backimage.png");
+background-attachment: fixed; /* this means that the background image will stay fixed on the page as the user scrolls */
+
+}
+
+/*Body paragraph styles */
+
+h1 {
+font-family: 'Inter', sans-serif;
+font-size: 60px;
+}
+
+h2 {
+font-family: 'Inter', sans-serif;
+color: #1775e4;
+padding-bottom: 1px; 
+
+}
+
+p {
+  font-family: 'Inter', sans-serif;
+  padding-bottom: 10px;
+}
+
+ul li {
+  font-family: Inter, sans-serif; /* This gives the list items the same font as the rest of the text throughout the website  */
+}
+
+/* Images styles */
+.center { /* This allows images to be centred */
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  
+}
+/*button styles */
+.button {
+  background-color: #ea61a3; /* This is the base colour of the button on the two workshop pages */
+  border-radius: 12px; /* This gives the buttons edges a rounded style */
+  border-color: transparent; /* This removes any border colour */
+  font-family: 'Inter', sans serif;
+  color: white; /* This gives the font defined above a white colour */
+  padding: 15px 52px;
+  text-align: center; /* This means that the text within the button will be aligned in the centre of the button shape */
+  font-size: 16px;
+  margin: 50px 260px;
+  opacity: ;
+  transition: 0.3s; /* This gives the click a smoothness */
+  display: inline-block;
+  text-decoration: none;
+  cursor: pointer; /* pointer cursor increases usablity as it shows that the button is able to be selected */
+}
+
+.button:hover { /* This gives the button certain characteristics/styles when it is hovered over. The purpose of this is to increase usabliity and responsiveness*/
+  background-color: #f6b21b; 
+  opacity: 1;
+  color: white; 
+  } 
+
+
+/* imbedded map Iframe */
+iframe{
+  padding-bottom: 30px; /* I gave the map a bottom padding of 30px to create some distance between the h2 that is placed below the map on the contacts page */
+  border-color: black; 
+}
+
+
+footer p { /* Here I set some styles for the footer text */
+padding: 40px 60px; /* Here I gave the text some padding to make sure it was visable and readable */
+font-family: 'Inter', sans-serif;/* defined the font-family to be consistent with the other parts of the website */
+font-size: 16px; /* defined the font-size to be consistent with the other parts of the websit */
+color: black; 
+}
+
+footer {
+  margin: 50px; /* I gave the whole <footer> grid area a margin of 50px to make sure the body text was readable */
+}
+
+aside-right ul li { /* Here is where I styled the social media links */
+ padding: 2px 90px; /* I repositioned the social media links on the page */
+ margin: 20px 10px; /* I gave the social medial icon's some distance from one another */
+ list-style:none; /* This removed any bullet points that the list would otherwise have */
+}
+
+/* Contact page form */
+
+* {box-sizing: border-box; /* This controls/selects the area that the box is in */
+}
+
+input[type=text], select, textarea {
+  width: 100%;
+  font-family: 'Inter', sans-serif;
+  color: black;
+  font-size:16px;
+  padding: 12px;
+  border: 0.5px solid black; /* this gives the form boxes a thin black outline */
+  border-radius: 4px; /* this gives the form boxes smooth/rounded edges */
+  box-sizing: border-box;
+  margin-top: 6px;
+  margin-bottom: 19px;
+  resize: vertical;
+}
+
+input[type=submit] { /*This sets some base styles for the button at the bottom of the form*/
+  background-color: #ea61a3; 
+  font-family: 'Inter', sans-serif;
+  font-size: 16px;
+  font-weight: 600;
+  border: none;
+  color: white;
+  margin: 0px 360px;
+  padding: 16px 30px;
+  border-radius: 4px;
+}
+
+input[type=submit]:hover {
+ background-color: #f6b21b; /* This allows the user to visually view when the hover over the button */
+}
+
+.container { /* This selector controls the style of the container/box that the forms are wrapped within*/
+  font-family: 'Inter', sans-serif;
+  font-size: 16px;
+  background-color: transparent; 
+  padding: 20px; /*This gives the form some space and creates a more readable website*/
+} 
+  

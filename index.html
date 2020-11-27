@@ -3,22 +3,81 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width">
+
     <title>repl.it</title>
-    <link href="style.css" rel="stylesheet" type="text/css" />
+    <link rel="icon" href="yourfavicon.png">
+  
+    <!-- Loaded fonts -->
+   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;700&display=swap" rel="stylesheet">
+    
+    <link href="style.css" rel="stylesheet" type="text/css">
+
   </head>
-  <body>
+
+  <body> 
     <script src="script.js"></script>
 
-    <div class="grid-container">
-       <logo></logo>
-       <nav></nav>
-       <header></header>
+    <div class="grid-container"> <!-- Within the body tag I included the html elements that I defined when creating my website grid/layout -->
+       <logo>
+         <!-- website logo that links back to home page -->
+        <figure>
+          <a href="index.html" >
+			     <img src="wbblogo.png" 
+           width="240" height="140"/>
+          </a>
+        </figure> 
+        
+       </logo>
+       
+       <nav>
+         <!-- Here I set up that navigation bar that would allows the user to toggle to and from the apprporiate page -->
+          <ul>
+           <li><a href="index.html">Home</a></li>
+           <li><a href="about.html">About</a></li> 
+           <li><a href="#">Workshops</a>
+             <ul>
+             <li><a href="open.html">Open Workshops</a></li>
+             <li><a href="school.html">School Workshops</a></li>
+           </ul>
+           <li><a href="contact.html">Contact</a></li>
+          </ul>
+       </nav>
        <aside-left></aside-left>
-       <aside-right></aside-right>
-       <body-text></body-text>
-       <footer>
+       <aside-right>
+         <!-- Here I provided the links to Beyond Blue's various social media platforms. Clicking on an icon allows the user to be directed to the specific social media site in a seperate/new tab. -->
+          <ul> 
+           
+           <li><a href="https://www.facebook.com/beyondblue/" target="blank" >
+			     <img src="facebook.png" 
+           width="40" height="40"/>
+           </a></li>
+
+           <li><a href="https://twitter.com/beyondblue?ref_src=twsrc%5Egoogle%7Ctwcamp%5Eserp%7Ctwgr%5Eauthor" target="blank" >
+			       <img src="twitter.png" 
+             width="40" height="40"/>
+           </a></li>
+
+           <li><a href="https://www.instagram.com/beyondblueofficial/" target="blank" >
+			     <img src="instagram.png" 
+           width="40" height="40"/>
+           </a></li> 
+          </ul>
+        </aside-right>
+
+       <body-text>  
+         <!-- This h1 tag allows the user to gain an understanding of the contents on the page-->
+         <h1 style="text-align:center;" <strong>Helping Australia promote the resillience of the LGBTI community</strong> 
+         </h1>
+
+         <!-- Here I included a video from BeyondBlue's youtube channel. This gives the user an introduction into the function/purpose of the charity/website-->
+         <iframe 
+           width="760" height="515" src="https://www.youtube.com/embed/Sg8pzwZPIbg" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" class="center" allowfullscreen></iframe>
+       </body-text> 
+
+       <footer> <!-- Here I included my personal details-->
+         <p>Lily Ross-Harper /<strong>SID:</strong> 480431251</p> 
        </footer>
     </div>
-    
+
   </body>
 </html>
